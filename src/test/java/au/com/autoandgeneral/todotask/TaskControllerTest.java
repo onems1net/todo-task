@@ -2,7 +2,6 @@ package au.com.autoandgeneral.todotask;
 
 import io.restassured.RestAssured;
 import io.restassured.parsing.Parser;
-import io.restassured.response.Response;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,26 +21,26 @@ import static org.hamcrest.Matchers.equalTo;
 @ContextConfiguration
 @SpringBootTest(classes = TodoTaskApplication.class, properties = "server.port:0", webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class TaskControllerTest {
-	@Value("${local.server.port:-1}")
-	private int port;
+    @Value("${local.server.port:-1}")
+    private int port;
 
-	@PostConstruct
-	@Before
-	public void setup() {
-		RestAssured.baseURI = "http://localhost:" + port;
-		RestAssured.port = port;
-		RestAssured.defaultParser = Parser.JSON;
-	}
+    @PostConstruct
+    @Before
+    public void setup() {
+        RestAssured.baseURI = "http://localhost:" + port;
+        RestAssured.port = port;
+        RestAssured.defaultParser = Parser.JSON;
+    }
 
-	@Test
-	public void testValidateBrackets() {
-		Response response=RestAssured.get("/tasks/validateBrackets/1")
-				.thenReturn();
-
-		response.then()
-				.statusCode(HttpStatus.OK.value())
-				.and()
-				.body("input", equalTo("1"));
-	}
+    @Test
+    public void testValidateBrackets() {
+        RestAssured
+                .get("/tasks/validateBrackets?input={")
+                .then()
+                .statusCode(HttpStatus.OK.value())
+                .and()
+                .body("input", equalTo("{"))
+                .body("isBalanced", equalTo(false));
+    }
 
 }

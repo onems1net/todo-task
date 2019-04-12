@@ -2,16 +2,14 @@ package au.com.autoandgeneral.todotask.api;
 
 import au.com.autoandgeneral.todotask.model.BalanceTestResult;
 import au.com.autoandgeneral.todotask.util.Parentheses;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(value = "/task/")
+@RequestMapping(value = "/tasks")
 public class TaskController {
-    @GetMapping("/validateBrackets/{input}")
-    public BalanceTestResult validateBrackets(@PathVariable("input") String input) {
+    @GetMapping(path = "/validateBrackets",  produces = {MediaType.APPLICATION_JSON_VALUE})
+    public BalanceTestResult validateBrackets(@RequestParam(value = "input") String input) {
         boolean isBalanced = Parentheses.isBalanced(input);
 
         return new BalanceTestResult(input, isBalanced);
