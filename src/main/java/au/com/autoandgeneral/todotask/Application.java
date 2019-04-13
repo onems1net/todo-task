@@ -8,9 +8,9 @@ import org.springframework.web.filter.CharacterEncodingFilter;
 
 
 @SpringBootApplication
-public class TodoTaskApplication   {
+public class Application {
     public static void main(String[] args) {
-        SpringApplication.run(TodoTaskApplication.class, args);
+        SpringApplication.run(Application.class, args);
     }
 
     @Bean
@@ -22,7 +22,4 @@ public class TodoTaskApplication   {
         characterEncodingFilter.setForceRequestEncoding(true);
         return characterEncodingFilter;
     }
-
-
-
 }

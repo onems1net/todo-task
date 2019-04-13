@@ -14,12 +14,12 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.PostConstruct;
 
-import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.*;
 
 @RunWith(SpringRunner.class)
 @ActiveProfiles("test")
 @ContextConfiguration
-@SpringBootTest(classes = TodoTaskApplication.class, properties = "server.port:0", webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(classes = Application.class, properties = "server.port:0", webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class TaskControllerTest {
     @Value("${local.server.port:-1}")
     private int port;
@@ -40,7 +40,23 @@ public class TaskControllerTest {
                 .statusCode(HttpStatus.OK.value())
                 .and()
                 .body("input", equalTo("("))
-                .body("isBalanced", equalTo(false));
+                .body("balanced", equalTo(false));
+
+        RestAssured
+                .get("/tasks/validateBrackets?input=()")
+                .then()
+                .statusCode(HttpStatus.OK.value())
+                .and()
+                .body("input", equalTo("()"))
+                .body("balanced", equalTo(true));
+
+        RestAssured
+                .get("/tasks/validateBrackets?input=")
+                .then()
+                .statusCode(HttpStatus.BAD_REQUEST.value())
+                .and()
+                .body("validationError.validationDetails", hasSize(greaterThan(0)));
+
     }
 
 }

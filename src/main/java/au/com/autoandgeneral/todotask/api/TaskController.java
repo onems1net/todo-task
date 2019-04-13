@@ -15,16 +15,7 @@ public class TaskController {
     TaskService taskService;
 
     @GetMapping(path = "/validateBrackets", produces = {MediaType.APPLICATION_JSON_VALUE})
-    public @ResponseBody
-    ResponseEntity<BalanceTestResult> validateBrackets(@RequestParam(value = "input") String input) {
-        /*if (StringUtils.isEmpty(input) || input.length() > 50) {
-            ValidationDetail validationDetail = new ValidationDetail("params", "input", "Input length be between 1 and 50 characters long", input);
-
-            throw new ValidationException(new BalanceTestResult(input, false, new ValidationError(Arrays.asList(validationDetail))));
-        }
-
-        return new ResponseEntity<BalanceTestResult>(new BalanceTestResult(input, Parentheses.isBalanced(input), null), HttpStatus.OK);*/
-
+    public @ResponseBody ResponseEntity<BalanceTestResult> validateBrackets(@RequestParam(value = "input") String input) {
         return new ResponseEntity<BalanceTestResult>(taskService.validateBrackets(input),HttpStatus.OK);
     }
 }
