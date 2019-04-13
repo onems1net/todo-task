@@ -33,7 +33,7 @@ public class TaskControllerTest {
     }
 
     @Test
-    public void testValidateBrackets() {
+    public void testValidateBracketsUnBalanaced() {
         RestAssured
                 .get("/tasks/validateBrackets?input=(")
                 .then()
@@ -42,6 +42,10 @@ public class TaskControllerTest {
                 .body("input", equalTo("("))
                 .body("balanced", equalTo(false));
 
+    }
+
+    @Test
+    public void testValidateBracketsBalanaced() {
         RestAssured
                 .get("/tasks/validateBrackets?input=()")
                 .then()
@@ -49,14 +53,15 @@ public class TaskControllerTest {
                 .and()
                 .body("input", equalTo("()"))
                 .body("balanced", equalTo(true));
+    }
 
+    @Test
+    public void testValidateBracketsInputLength() {
         RestAssured
                 .get("/tasks/validateBrackets?input=")
                 .then()
                 .statusCode(HttpStatus.BAD_REQUEST.value())
                 .and()
                 .body("validationError.validationDetails", hasSize(greaterThan(0)));
-
     }
-
 }
