@@ -6,4 +6,5 @@ import lombok.Value;
 public class BalanceTestResult {
     private String input;
     private boolean isBalanced;
+    private ValidationError ValidationError;
 }

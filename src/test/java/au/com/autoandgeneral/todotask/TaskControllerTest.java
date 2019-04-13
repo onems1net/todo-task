@@ -35,11 +35,11 @@ public class TaskControllerTest {
     @Test
     public void testValidateBrackets() {
         RestAssured
-                .get("/tasks/validateBrackets?input={")
+                .get("/tasks/validateBrackets?input=(")
                 .then()
                 .statusCode(HttpStatus.OK.value())
                 .and()
-                .body("input", equalTo("{"))
+                .body("input", equalTo("("))
                 .body("isBalanced", equalTo(false));
     }
 
