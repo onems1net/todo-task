@@ -21,8 +21,8 @@ public class ToDoService {
 
     public ToDoItem patch(ToDoItem newToDoItem, long id) {
         return toDoRepository.findById(id).map(toDoItem -> {
-            newToDoItem.getText();
-            newToDoItem.isCompleted();
+            toDoItem.setText(newToDoItem.getText());
+            toDoItem.setCompleted(newToDoItem.isCompleted());
             return toDoRepository.save(toDoItem);
         }).orElseThrow(() -> new ToDoItemNotFoundException(id));
     }
