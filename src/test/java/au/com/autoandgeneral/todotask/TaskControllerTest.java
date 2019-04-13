@@ -64,4 +64,26 @@ public class TaskControllerTest {
                 .and()
                 .body("validationError.validationDetails", hasSize(greaterThan(0)));
     }
+
+    @Test
+    public void testValidateBraceUnBalanaced() {
+        RestAssured
+                .get("/tasks/validateBrackets?input={")
+                .then()
+                .statusCode(HttpStatus.OK.value())
+                .and()
+                .body("input", equalTo("{"))
+                .body("balanced", equalTo(false));
+    }
+
+    @Test
+    public void testValidateBraceBalanaced() {
+        RestAssured
+                .get("/tasks/validateBrackets?input={}")
+                .then()
+                .statusCode(HttpStatus.OK.value())
+                .and()
+                .body("input", equalTo("{}"))
+                .body("balanced", equalTo(true));
+    }
 }

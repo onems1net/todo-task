@@ -15,7 +15,12 @@ public class TaskController {
     TaskService taskService;
 
     @GetMapping(path = "/validateBrackets", produces = {MediaType.APPLICATION_JSON_VALUE})
-    public @ResponseBody ResponseEntity<BalanceTestResult> validateBrackets(@RequestParam(value = "input") String input) {
+    public @ResponseBody ResponseEntity<BalanceTestResult> validateBracketsGet(@RequestParam(value = "input") String input) {
+        return new ResponseEntity<BalanceTestResult>(taskService.validateBrackets(input),HttpStatus.OK);
+    }
+
+    @PostMapping(value = "/validateBrackets",consumes = MediaType.TEXT_PLAIN_VALUE,produces = {MediaType.APPLICATION_JSON_VALUE})
+    public @ResponseBody ResponseEntity<BalanceTestResult> validateBracketsPost(@RequestBody String input) {
         return new ResponseEntity<BalanceTestResult>(taskService.validateBrackets(input),HttpStatus.OK);
     }
 }
