@@ -54,11 +54,11 @@ Response body media type: application/json
 
 Validation: On the validity of the id
 
-Application run on following profiles
+## Application run on following profiles
 
-## 1. test: To run application unit test
+### 1. test: To run application unit test
 
-## 2. http-https: To host application on both HTTP (8080) and HTTPS (5000) port locally (localhost)
+### 2. http-https: To host application on both HTTP (8080) and HTTPS (5000) port locally (localhost)
 
 Bracket validation:
 ```
@@ -72,7 +72,7 @@ http://localhost:8080/test/1.0/todo/add
 https://localhost:5000/test/1.0/todo/add
 ```
 
-## 3. aws-ebs: Profile used to currently host the application on AWS cloud (EBS)
+### 3. aws-ebs: Profile used to currently host the application on AWS cloud (EBS)
 
 DNS: TodoTask-env.97whddbesp.ap-southeast-2.elasticbeanstalk.com
    
