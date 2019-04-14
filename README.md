@@ -19,7 +19,7 @@ Validation: On the input lenght restrication. Validation error appear in respons
 
 Operation: Add TODO item
 
-Access URL: <protocol>://<dns>:<port>/test/1.0/todo/add
+Access URL: protocol://dns:port/test/1.0/todo/add
    
 Method: POST
 
@@ -31,7 +31,7 @@ Validation: On the input lenght restrication. Validation error appear in respons
 
 Operation: View TODO item
 
-Access URL: <protocol>://<dns>:<port>/test/1.0/todo/{id}
+Access URL: protocol://dns:port/test/1.0/todo/{id}
    
 Method: GET
 
@@ -41,7 +41,7 @@ Validation: On the validity of the id
 
 Operation: Update TODO item
 
-Access URL: <protocol>://<dns>:<port>/test/1.0/todo/{id}
+Access URL: protocol://dns:port/test/1.0/todo/{id}
    
 Method: PATCH
 
