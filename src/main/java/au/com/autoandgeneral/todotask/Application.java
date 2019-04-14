@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
 import org.springframework.boot.web.servlet.server.ServletWebServerFactory;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Profile;
 
 @SpringBootApplication
 public class Application {
@@ -14,12 +15,11 @@ public class Application {
         SpringApplication.run(Application.class, args);
     }
 
-    //HTTP port
     @Value("${http.port}")
     private int httpPort;
 
-    // Let's configure additional connector to enable support for both HTTP and HTTPS
-    @Bean
+    @Bean()
+    @Profile("!test")
     public ServletWebServerFactory servletContainer() {
         TomcatServletWebServerFactory tomcat = new TomcatServletWebServerFactory();
         tomcat.addAdditionalTomcatConnectors(createStandardConnector());
