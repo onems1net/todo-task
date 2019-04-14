@@ -1,4 +1,4 @@
-package au.com.autoandgeneral.todotask;
+package com.animesh.todotask;
 
 import io.restassured.RestAssured;
 import io.restassured.parsing.Parser;

@@ -1,6 +1,6 @@
-package au.com.autoandgeneral.todotask.exception;
+package com.animesh.todotask.exception;
 
-import au.com.autoandgeneral.todotask.model.BalanceTestResult;
+import com.animesh.todotask.model.BalanceTestResult;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

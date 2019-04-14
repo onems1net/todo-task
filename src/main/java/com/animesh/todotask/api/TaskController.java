@@ -1,7 +1,7 @@
-package au.com.autoandgeneral.todotask.api;
+package com.animesh.todotask.api;
 
-import au.com.autoandgeneral.todotask.model.BalanceTestResult;
-import au.com.autoandgeneral.todotask.service.TaskService;
+import com.animesh.todotask.model.BalanceTestResult;
+import com.animesh.todotask.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;

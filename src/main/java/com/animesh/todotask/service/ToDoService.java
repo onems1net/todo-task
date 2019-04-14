@@ -1,8 +1,8 @@
-package au.com.autoandgeneral.todotask.service;
+package com.animesh.todotask.service;
 
-import au.com.autoandgeneral.todotask.exception.ToDoItemNotFoundException;
-import au.com.autoandgeneral.todotask.model.ToDoItem;
-import au.com.autoandgeneral.todotask.repository.ToDoRepository;
+import com.animesh.todotask.exception.ToDoItemNotFoundException;
+import com.animesh.todotask.model.ToDoItem;
+import com.animesh.todotask.repository.ToDoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

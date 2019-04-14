@@ -1,4 +1,4 @@
-package au.com.autoandgeneral.todotask.model;
+package com.animesh.todotask.model;
 
 import lombok.Value;
 

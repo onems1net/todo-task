@@ -1,4 +1,4 @@
-package au.com.autoandgeneral.todotask;
+package com.animesh.todotask;
 
 import org.apache.catalina.connector.Connector;
 import org.springframework.beans.factory.annotation.Value;

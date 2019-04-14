@@ -1,7 +1,7 @@
-package au.com.autoandgeneral.todotask.api;
+package com.animesh.todotask.api;
 
-import au.com.autoandgeneral.todotask.model.ToDoItem;
-import au.com.autoandgeneral.todotask.service.ToDoService;
+import com.animesh.todotask.model.ToDoItem;
+import com.animesh.todotask.service.ToDoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

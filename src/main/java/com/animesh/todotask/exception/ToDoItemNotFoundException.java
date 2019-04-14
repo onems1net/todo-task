@@ -1,4 +1,4 @@
-package au.com.autoandgeneral.todotask.exception;
+package com.animesh.todotask.exception;
 
 public class ToDoItemNotFoundException extends RuntimeException {
     public ToDoItemNotFoundException(long id) {
