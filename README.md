@@ -1,6 +1,6 @@
 # TODO-Task
 
-This application project contains following features...
+This Spring Boot application contains following features...
 
 ## 1. Validating the completeness of the brackets i.e. parentheses, brace and square bracket
 
