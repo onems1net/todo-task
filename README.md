@@ -5,7 +5,7 @@ This application project contains following features...
 ## 1. Validating the completeness of the brackets i.e. parentheses, brace and square bracket
 
 Access URL: 
-protocol://dns:port/test/1.0/validateBrackets
+```<protocol>://<dns>:<port>/test/1.0/validateBrackets```
    
 Method: POST as GET request doesn't support for brace and square bracket as query parameter
 
@@ -17,9 +17,10 @@ Validation: On the input lenght restrication. Validation error appear in respons
 
 ## 2. Add/View/Updaate TODO items
 
-Operation: Add TODO item
+### Operation: Add TODO item
 
-Access URL: protocol://dns:port/test/1.0/todo/add
+Access URL: 
+```<protocol>://<dns>:<port>/test/1.0/todo/add```
    
 Method: POST
 
@@ -29,9 +30,10 @@ Response body media type: application/json
 
 Validation: On the input lenght restrication. Validation error appear in response body
 
-Operation: View TODO item
+### Operation: View TODO item
 
-Access URL: protocol://dns:port/test/1.0/todo/{id}
+Access URL: 
+```<protocol>://<dns>:<port>/test/1.0/todo/{id}```
    
 Method: GET
 
@@ -39,9 +41,10 @@ Response body media type: application/json
 
 Validation: On the validity of the id
 
-Operation: Update TODO item
+### Operation: Update TODO item
 
-Access URL: protocol://dns:port/test/1.0/todo/{id}
+Access URL:
+```<protocol>://<dns>:<port>/test/1.0/todo/{id}```
    
 Method: PATCH
 
@@ -59,16 +62,13 @@ Application run on following profiles
 
 Bracket validation:
 ```
-
 http://localhost:8080/test/1.0/tasks/validateBrackets
-
 https://localhost:5000/test/1.0/tasks/validateBrackets
 ```
 
 TODO item addition:
 ```
 http://localhost:8080/test/1.0/todo/add
-
 https://localhost:5000/test/1.0/todo/add
 ```
 
@@ -81,17 +81,15 @@ Port: 5000
 e.g. the URL for application access on AWS will be
    
 Bracket validation:
-```   
-http://TodoTask-env.97whddbesp.ap-southeast-2.elasticbeanstalk.com/test/1.0/tasks/validateBrackets
-```
+
+```http://TodoTask-env.97whddbesp.ap-southeast-2.elasticbeanstalk.com/test/1.0/tasks/validateBrackets```
    
 TODO item addition:
-```
-   
-http://todotask-env.97whddbesp.ap-southeast-2.elasticbeanstalk.com/test/1.0/todo/add
-```
 
-## Testing: Unit testing are defined using REST Assured and integration testing using Postman
+```http://todotask-env.97whddbesp.ap-southeast-2.elasticbeanstalk.com/test/1.0/todo/add```
+
+## Testing:
+Unit testing are defined using REST Assured and integration testing using Postman
 
 ## Incomplete features:
 
