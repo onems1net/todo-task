@@ -72,6 +72,13 @@ http://localhost:8080/test/1.0/todo/add
 https://localhost:5000/test/1.0/todo/add
 ```
 
+### Private Key for HTTPS access
+For HTTPS access please create a private key on the server where the application will run, using the following keytool command under $JAVA_HOME/bin and place the private key under sr/main/resources/keystore directory
+
+```
+./keytool -genkeypair -alias todo_task -keyalg RSA -keysize 2048 -storetype PKCS12 -keystore ${project.basedir}/src/main/resources/keystore/todo_task.p12 -validity 3650
+```
+
 ### 3. aws-ebs: Profile used to currently host the application on AWS cloud (EBS)
 
 DNS: TodoTask-env.97whddbesp.ap-southeast-2.elasticbeanstalk.com
@@ -96,5 +103,3 @@ Unit testing are defined using REST Assured and integration testing using Postma
 1. Swagger API documentation
 
 2. Endpoint for testing and status check
-
-
