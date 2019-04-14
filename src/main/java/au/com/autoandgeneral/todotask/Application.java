@@ -8,6 +8,7 @@ import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactor
 import org.springframework.boot.web.servlet.server.ServletWebServerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Profile;
+import org.springframework.lang.Nullable;
 
 @SpringBootApplication
 public class Application {
@@ -15,11 +16,12 @@ public class Application {
         SpringApplication.run(Application.class, args);
     }
 
-    @Value("${http.port}")
+    @Value("${http.port:-1}")
+    @Nullable
     private int httpPort;
 
     @Bean()
-    @Profile("!test")
+    @Profile("http-https")
     public ServletWebServerFactory servletContainer() {
         TomcatServletWebServerFactory tomcat = new TomcatServletWebServerFactory();
         tomcat.addAdditionalTomcatConnectors(createStandardConnector());

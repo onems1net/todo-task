@@ -39,7 +39,7 @@ public class ToDoControllerTest {
     @Test
     public void testGetWithInvalidId() {
         RestAssured
-                .get("/todo/5")
+                .get("/test/1.0/todo/5")
                 .then()
                 .statusCode(HttpStatus.NOT_FOUND.value());
 
@@ -48,7 +48,7 @@ public class ToDoControllerTest {
     @Test
     public void testGetWithoutId() {
         RestAssured
-                .get("/todo")
+                .get("/test/1.0/todo")
                 .then()
                 .statusCode(HttpStatus.NOT_FOUND.value());
 
@@ -65,7 +65,7 @@ public class ToDoControllerTest {
                 .contentType(ContentType.JSON)
                 .body(map)
                 .when()
-                .post("/todo/add")
+                .post("/test/1.0/todo/add")
                 .then()
                 .statusCode(HttpStatus.OK.value())
                 .and()
@@ -86,7 +86,7 @@ public class ToDoControllerTest {
                 .contentType(ContentType.JSON)
                 .body(map)
                 .when()
-                .patch("/todo/1")
+                .patch("/test/1.0/todo/1")
                 .then()
                 .statusCode(HttpStatus.OK.value())
                 .and()
@@ -107,7 +107,7 @@ public class ToDoControllerTest {
                 .contentType(ContentType.JSON)
                 .body(map)
                 .when()
-                .patch("/todo/5")
+                .patch("/test/1.0/todo/5")
                 .then()
                 .statusCode(HttpStatus.NOT_FOUND.value());
     }
@@ -123,7 +123,7 @@ public class ToDoControllerTest {
                 .contentType(ContentType.JSON)
                 .body(map)
                 .when()
-                .patch("/todo")
+                .patch("/test/1.0/todo")
                 .then()
                 .statusCode(HttpStatus.NOT_FOUND.value());
     }

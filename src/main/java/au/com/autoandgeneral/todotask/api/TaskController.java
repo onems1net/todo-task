@@ -9,7 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(value = "/tasks")
+@RequestMapping(value = "/test/1.0/tasks")
 public class TaskController {
     @Autowired
     TaskService taskService;
